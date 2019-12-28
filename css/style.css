@@ -250,6 +250,8 @@ section {
 #skills {
     background: #151515 url(/images/background.jpg) no-repeat center center;
     background-attachment: fixed;
+    font-size: 2.2ex;
+
 }
 
 
@@ -376,7 +378,6 @@ footer p {
     #skills {
         background: #151515 url(url(/images/background.jpg)) no-repeat center center;
         background-position: top center;
-        font-size: 2.2ex;
     }
 }
 
