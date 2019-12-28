@@ -238,7 +238,7 @@ section {
 
 
 
-/* 06. Timeline Styles
+/* 06. Timeline Icon Styles
  * =================================================================== */
 
 .timeline-icon .fa {
@@ -246,6 +246,7 @@ section {
     margin: 14px;
     font-size: 1.7em;
 }
+
 
 #skills {
     background: #151515 url(/images/background.jpg) no-repeat center center;
