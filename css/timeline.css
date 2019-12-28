@@ -180,6 +180,7 @@ header .social .btn {
 
 #timeline .timeline-item .timeline-content p {
   padding-top: 15px;
+  font-size: 2.2ex;
 }
 
 #timeline .timeline-item .timeline-content:before {
