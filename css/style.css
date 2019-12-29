@@ -257,7 +257,7 @@ section {
 
 }
 
-#skills p {
+#skills .row p {
     text-align: justify;
 
 }
