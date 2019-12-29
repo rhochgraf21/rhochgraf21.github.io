@@ -247,6 +247,8 @@ section {
     font-size: 1.7em;
 }
 
+/* 07. Skills Section Styles
+* =================================================================== */
 
 #skills {
     background: #151515 url(/images/background.jpg) no-repeat center center;
@@ -255,8 +257,13 @@ section {
 
 }
 
+#skills p {
+    text-align: justify;
 
-/* 07. Footer
+}
+
+
+/* 08. Footer
  * =================================================================== */
 
 footer {
