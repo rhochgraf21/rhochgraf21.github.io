@@ -222,6 +222,9 @@ header .social .btn {
   #timeline .timeline-item .timeline-content iframe {
     width: 100%;
   }
+  #timeline .timeline-item .timeline-content img {
+    height: 55ex;
+  }
   #timeline .timeline-item .timeline-content:before, #timeline .timeline-item .timeline-content.right:before {
     left: 10%;
     margin-left: -6px;
