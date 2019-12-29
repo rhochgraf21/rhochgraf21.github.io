@@ -219,6 +219,9 @@ header .social .btn {
     width: 90%;
     float: right;
   }
+  #timeline .timeline-item .timeline-content iframe {
+    width: 100%;
+  }
   #timeline .timeline-item .timeline-content:before, #timeline .timeline-item .timeline-content.right:before {
     left: 10%;
     margin-left: -6px;
