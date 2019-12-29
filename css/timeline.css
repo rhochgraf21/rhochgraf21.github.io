@@ -219,10 +219,12 @@ header .social .btn {
     width: 90%;
     float: right;
   }
-  #timeline .timeline-item .timeline-content iframe {
+  
+  #timeline .timeline-item iframe {
     width: 100%;
   }
-  #timeline .timeline-item .timeline-content img {
+  
+  #timeline .timeline-item img {
     height: 55ex;
   }
   #timeline .timeline-item .timeline-content:before, #timeline .timeline-item .timeline-content.right:before {
