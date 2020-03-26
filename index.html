@@ -122,8 +122,9 @@
                     to low vision users. From there, I learned Javascript, Python, HTML/CSS, and Git through Codecademy. In summer of 2016, I set up a website hosted on a
                     raspberry pi to collect and read stock data to low vision users, taught myself PHP, 
                     and coded the webpage using the Yahoo Finance API. When the API was shut down, 
-                    I went and reconstructed for Alpha Vantage API, and later IEX API. Development
-                    continues to this day.</p>
+                    I went and reconstructed for Alpha Vantage API, IEX API, and then moved the system
+                    to Google's Dialogflow to integrate with the google assistant. Development continues 
+                    to this day.</p>
                 </div>
 
 
@@ -173,7 +174,7 @@
 
 
                             <div class="timeline-icon">
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-music"></i>
                             </div>
                             <!-- Content from timeline box and position (right or left)-->
 
@@ -196,13 +197,13 @@
 
 
                             <div class="timeline-icon">
-                                <i class="fa fa-cog"></i>
+                                <i class="fa fa-mobile"></i>
                             </div>
                             <!-- Content from timeline box and position (right or left)-->
 
 
                             <div class="timeline-content left">
-                                <h2>My First Phone Application</h2>
+                                <h2>Healthy Foods</h2>
 
 
                                 <p>In Decemeber 2013, I began creating android smartphone 
@@ -223,7 +224,7 @@
 
 
                             <div class="timeline-icon">
-                                <i class="fa fa-plane"></i>
+                                <i class="fa fa-internet-explorer"></i>
                             </div>
                             <!-- Content from timeline box and position (right or left)-->
 
@@ -251,7 +252,7 @@
 
 
                             <div class="timeline-icon">
-                                <i class="fa fa-group"></i>
+                                <i class="fa fa-headphones"></i>
                             </div>
                             <!-- Content from timeline box and position (right or left)-->
 
@@ -265,9 +266,30 @@
                         </div>
                         <!-- /Timeline Item-->
                         <!-- Timeline Item, copy from here to create various boxes -->
+                        <div class="timeline-item">
+                            <!--Icon inside the circle-->
 
 
-                        
+                            <div class="timeline-icon">
+                                <i class="fa fa-google"></i>
+                            </div>
+                            <!-- Content from timeline box and position (right or left)-->
+
+
+                            <div class="timeline-content right">
+                                <h2></h2>
+                                    <p>In February 2020, I began working on integrating my stock data metrics 
+                                       from my stock webpage to the Google Assistant.
+                                       The program uses Dialogflow and a webhook through firebase to deliver stock data
+                                       from the IEX API. The program has been consistenly improved to fit customer needs,
+                                       such as interpreting company names (Apple, General Electric) as raw tex, and is now
+                                       on its 9th alpha release.                                        
+                                       You can try it here: 
+                                       <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/89cb9861-1552-4183-b8a1-1b8067e09e23"></iframe>
+
+                                
+                            </div>
+                        </div>                                       
                         <!-- /Timeline Item-->
                     </div>
                     <!-- /col-md-12 -->
