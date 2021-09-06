@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Campus Food</title>
+        <!-- Favicon configs -->
+        <link rel="apple-touch-icon" sizes="180x180" href="https://assets.csh.rit.edu/pubsite/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://assets.csh.rit.edu/pubsite/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://assets.csh.rit.edu/pubsite/favicon/favicon-16x16.png">
+        <link rel="manifest" href="https://assets.csh.rit.edu/pubsite/favicon/site.webmanifest">
+        <link rel="mask-icon" href="https://assets.csh.rit.edu/pubsite/favicon/safari-pinned-tab.svg" color="#B0197E">
+        <link rel="shortcut icon" href="https://assets.csh.rit.edu/pubsite/favicon/favicon.ico">
+        <style>
+            .campusfood-table {
+                border-collapse: collapse;
+                font-size: 1.6rem;
+                font-family: sans-serif;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .campusfood-table thead tr {
+                background-color: #009879;
+                color: #ffffff;
+                text-align: left;
+            }
+
+            .campusfood-table th,
+            .campusfood-table td {
+                padding: 12px 15px;
+            }
+
+            .campusfood-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+
+            .campusfood-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .campusfood-table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+            .campusfood-table tbody tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+        </style>
+
+        <script>
+            function MakeBusynessTable(json_response) {
+
+                //json_response = JSON.parse(json_response)
+                
+                var busyness = json_response.busyness;
+
+                var tablebody = document.getElementById("tablebody");
+
+                for(var i = 0; i <= 16; i++) {
+                    //create table rows
+                    var tr = document.createElement('TR');
+                    
+                    //create 3 columns
+                    var td1 = document.createElement('TD')
+                    var td2 = document.createElement('TD')
+                    var td3 = document.createElement('TD')
+                    var td4 = document.createElement('TD')
+                    
+                    //first col data
+                    var name = busyness[i].properties.name
+                    var count = busyness[i].properties.count
+                    var max_occ = busyness[i].properties.max_occ
+
+                    //append first col data
+                    td1.appendChild(document.createTextNode(name))
+                    tr.appendChild(td1)
+                    
+                    //append second col data
+                    td2.appendChild(document.createTextNode(count))
+                    tr.appendChild(td2)
+                        
+                    //append col 3
+                    td3.appendChild(document.createTextNode(max_occ))
+                    tr.appendChild(td3)
+
+                    //append col 4
+                    td4.appendChild(document.createTextNode(Math.round(count*100/max_occ)))
+                    if(Math.round(count*100/max_occ) > 150) {
+                        td4.style.color = "red";
+                    }
+                    else if(Math.round(count*100/max_occ) < 15) {
+                        td4.style.color = "grey";
+                    }
+                    else if(Math.round(count*100/max_occ < 50)) {
+                        td4.style.color = "green";
+                    }
+                    else {
+                        td4.style.color = "orange";
+                    }
+                    tr.appendChild(td4)
+                    tablebody.appendChild(tr)
+                }
+
+            }
+
+            var json_response;
+
+            fetch('https://maps.rit.edu/proxySearch/densityMap.php')
+              .then((response) => {
+                return response.json();
+              })
+              .then((myJson) => {
+                json_response = myJson;
+                MakeBusynessTable(json_response);
+              });
+        </script>
+
+    </head>
+    <body>
+        <table class="campusfood-table">
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Occupants</th>
+                    <th>Max Occupancy</th>
+                    <th>% Full</th>
+                </tr>
+            </thead>
+            <tbody id = "tablebody">
+                <thead>
+                    <tr>
+                        <th>Powered by <img src = "https://assets.csh.rit.edu/pubsite/favicon/favicon-16x16.png"/></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+    </body>
+</html>
