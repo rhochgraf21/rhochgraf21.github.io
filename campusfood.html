@@ -70,6 +70,7 @@
                     var name = busyness[i].properties.name
                     var count = busyness[i].properties.count
                     var max_occ = busyness[i].properties.max_occ
+                    var open_now = (busyness[i].properties.open_status).includes("Open")
 
                     //append first col data
                     td1.appendChild(document.createTextNode(name))
@@ -85,17 +86,19 @@
 
                     //append col 4
                     td4.appendChild(document.createTextNode(Math.round(count*100/max_occ)))
-                    if(Math.round(count*100/max_occ) > 150) {
-                        td4.style.color = "red";
-                    }
-                    else if(Math.round(count*100/max_occ) < 15) {
-                        td4.style.color = "grey";
-                    }
-                    else if(Math.round(count*100/max_occ < 50)) {
-                        td4.style.color = "green";
+                    if(open_now) {
+                        if(Math.round(count*100/max_occ) > 150) {
+                            td4.style.color = "red";
+                        }
+                        else if(Math.round(count*100/max_occ < 50)) {
+                            td4.style.color = "green";
+                        }
+                        else {
+                            td4.style.color = "orange";
+                        }
                     }
                     else {
-                        td4.style.color = "orange";
+                         td4.style.color = "grey";
                     }
                     tr.appendChild(td4)
                     tablebody.appendChild(tr)
