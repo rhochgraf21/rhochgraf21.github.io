@@ -86,24 +86,18 @@
 
                     //append col 4
                     td4.appendChild(document.createTextNode(Math.round(count*100/max_occ)))
-                    if(open_now) {
-                        if(Math.round(count*100/max_occ) > 150) {
-                            td4.style.color = "red";
-                        }
-                        else if(Math.round(count*100/max_occ < 50)) {
-                            td4.style.color = "green";
-                        }
-                        else {
-                            td4.style.color = "orange";
-                        }
+                    if(Math.round(count*100/max_occ) > 150) {
+                        td4.style.color = "red";
+                    }
+                    else if(Math.round(count*100/max_occ) < 15) {
+                        td4.style.color = "grey";
+                    }
+                    else if(Math.round(count*100/max_occ < 50)) {
+                        td4.style.color = "green";
                     }
                     else {
-                         td4.style.color = "grey";
+                        td4.style.color = "orange";
                     }
-                    tr.appendChild(td4)
-                    tablebody.appendChild(tr)
-                }
-
             }
 
             var json_response;
