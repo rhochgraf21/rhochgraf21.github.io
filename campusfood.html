@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>Campus Food</title>
-        <link rel = "stylesheet" href = "lightmode.css">
 
+        <link rel = "stylesheet" href = "lightmode.css" id = "stylemode"></link>
         <script>
+
             function MakeBusynessTable(json_response) {
 
                 //json_response = JSON.parse(json_response)
@@ -59,16 +60,52 @@
 
             }
 
+          //fetch the json info from the rit maps api at runtime
             var json_response;
 
-            fetch('https://maps.rit.edu/proxySearch/densityMap.php')
-              .then((response) => {
-                return response.json();
-              })
-              .then((myJson) => {
-                json_response = myJson;
-                MakeBusynessTable(json_response);
-              });
+            function GetJson() {            
+                fetch('https://maps.rit.edu/proxySearch/densityMap.php')
+                  .then((response) => {
+                    return response.json();
+                  })
+                  .then((myJson) => {
+                    json_response = myJson;
+                    MakeBusynessTable(json_response);
+                  });
+            }
+
+
+
+            function RemoveTable() {
+                var tablebody = document.getElementById("tablebody");
+                while(tablebody.rows.length > 0) {
+                        tablebody.deleteRow(0);
+                }
+            }
+
+            function Update() {
+                RemoveTable();
+                GetJson();
+            }
+
+            Update();            
+            setInterval(Update(), 1800000);
+
+
+            setInterval(ModeUpdater(), 300000);
+
+            function ModeUpdater() {
+                var modeElement = document.getElementById("stylemode");
+                var d = new Date();
+                var time = d.getHours();
+                if(time < 18 && time > 9) {
+
+                    modeElement.setAttribute('href', 'lightmode.css');
+                }
+                else {
+                    modeElement.setAttribute('href', 'darkmode.css');
+                }
+            }
         </script>
 
     </head>
@@ -91,7 +128,6 @@
                         <th></th>
                     </tr>
                 </thead>
-                <!-- and so on... -->
             </tbody>
         </table>
     </body>
